@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+service GroeriesService {
+    rpc createItems (Item) returns (Item);
+    rpc createCatagories (Catagory) returns (Catagory);
+    rpc getAllItem (Empty) returns (Items);
+    rpc getAllCatagories (Empty) returns (Catagories);
+    rpc deleteItem (Item) returns (Empty);
+    rpc deleteCatagory (Catagory) returns (Empty);
+    rpc getItembyCatagory (Catagory) returns (AllItemsofCatagory);
+ } 
+
+ message Item {
+     int32 id = 1;
+     string name = 2;
+     int32 catagoryId = 3;
+
+     
+ }
+
+ message Catagory {
+    int32 id = 1;
+    string name = 2;
+ }
+
+ message Empty {
+     
+ }
+
+ message Catagories {
+     repeated Catagory catagories = 1;
+ }
+
+ message Items {
+     repeated Item items = 1;
+     
+ }
+
+ message AllItemsofCatagory {
+     int32 catagoryid = 3 ;
+     repeated Item items = 1;
+ }
