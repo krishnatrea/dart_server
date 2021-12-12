@@ -31,6 +31,14 @@ class GroeriesServiceClient extends $grpc.Client {
       '/GroeriesService/getAllCatagories',
       ($0.Empty value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Catagories.fromBuffer(value));
+  static final _$editCatagory = $grpc.ClientMethod<$0.Catagory, $0.Catagory>(
+      '/GroeriesService/editCatagory',
+      ($0.Catagory value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Catagory.fromBuffer(value));
+  static final _$editItem = $grpc.ClientMethod<$0.Item, $0.Empty>(
+      '/GroeriesService/editItem',
+      ($0.Item value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
   static final _$deleteItem = $grpc.ClientMethod<$0.Item, $0.Empty>(
       '/GroeriesService/deleteItem',
       ($0.Item value) => value.writeToBuffer(),
@@ -69,6 +77,16 @@ class GroeriesServiceClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.Catagories> getAllCatagories($0.Empty request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAllCatagories, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Catagory> editCatagory($0.Catagory request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$editCatagory, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty> editItem($0.Item request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$editItem, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.Empty> deleteItem($0.Item request,
@@ -120,6 +138,20 @@ abstract class GroeriesServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
         ($0.Catagories value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Catagory, $0.Catagory>(
+        'editCatagory',
+        editCatagory_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Catagory.fromBuffer(value),
+        ($0.Catagory value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Item, $0.Empty>(
+        'editItem',
+        editItem_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Item.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.Item, $0.Empty>(
         'deleteItem',
         deleteItem_Pre,
@@ -163,6 +195,16 @@ abstract class GroeriesServiceBase extends $grpc.Service {
     return getAllCatagories(call, await request);
   }
 
+  $async.Future<$0.Catagory> editCatagory_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Catagory> request) async {
+    return editCatagory(call, await request);
+  }
+
+  $async.Future<$0.Empty> editItem_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Item> request) async {
+    return editItem(call, await request);
+  }
+
   $async.Future<$0.Empty> deleteItem_Pre(
       $grpc.ServiceCall call, $async.Future<$0.Item> request) async {
     return deleteItem(call, await request);
@@ -184,6 +226,9 @@ abstract class GroeriesServiceBase extends $grpc.Service {
   $async.Future<$0.Items> getAllItem($grpc.ServiceCall call, $0.Empty request);
   $async.Future<$0.Catagories> getAllCatagories(
       $grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.Catagory> editCatagory(
+      $grpc.ServiceCall call, $0.Catagory request);
+  $async.Future<$0.Empty> editItem($grpc.ServiceCall call, $0.Item request);
   $async.Future<$0.Empty> deleteItem($grpc.ServiceCall call, $0.Item request);
   $async.Future<$0.Empty> deleteCatagory(
       $grpc.ServiceCall call, $0.Catagory request);

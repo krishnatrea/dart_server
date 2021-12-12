@@ -5,6 +5,8 @@ service GroeriesService {
     rpc createCatagories (Catagory) returns (Catagory);
     rpc getAllItem (Empty) returns (Items);
     rpc getAllCatagories (Empty) returns (Catagories);
+    rpc editCatagory (Catagory) returns (Catagory);
+    rpc editItem (Item) returns (Empty);
     rpc deleteItem (Item) returns (Empty);
     rpc deleteCatagory (Catagory) returns (Empty);
     rpc getItembyCatagory (Catagory) returns (AllItemsofCatagory);
